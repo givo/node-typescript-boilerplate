@@ -8,9 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\dist\\main.js",
+            "program": "${workspaceFolder}/dist/main.js",
             "outFiles": [
-                "${workspaceFolder}/**/*.js"
+                "${workspaceFolder}/dist/**/*.js"
+            ],
+            "args": [
+                "http://www.google.com",
+                "2"
             ]
         }
     ]

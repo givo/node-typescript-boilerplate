@@ -18,6 +18,7 @@
   "homepage": "https://github.com/givo/node-typescript-boilerplate#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-typescript": "^5.0.0-alpha.3",
     "typescript": "^3.1.2"
   }
