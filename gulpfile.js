@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var ts = require("gulp-typescript");
+var sourcemaps = require('gulp-sourcemaps');
 
 var tsProject = ts.createProject("tsconfig.json");
 
@@ -13,11 +14,13 @@ gulp.task("default", ["scripts", "watch"], () => {
 });
 
 gulp.task('scripts', function(){    
-    let tsResult = tsProject.src()
+    const tsResult = tsProject.src()
+    .pipe(sourcemaps.init())
     .pipe(tsProject());
 
-    tsResult.js.pipe(gulp.dest(paths.dist));
-    tsResult.pipe(gulp.dest(paths.dist));
+  return tsResult.js
+    .pipe(sourcemaps.write('.')) // <---
+    .pipe(gulp.dest(tsProject.config.compilerOptions.outDir));
 });
 
 gulp.task('watch', function(){
